@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage{minted}
 \usepackage{textcomp}
 \usepackage{xcolor}
 
@@ -55,7 +56,27 @@ As to the practical applications of our project, we have decided to stick to the
 \textbf{*NEW INFO ABOUT OTHER DATASETS WILL BE ADDED HERE*}
 
 \section{Related Work}
-tbd
+
+\textbf{*NEW INFO ABOUT SOLVING MULTICOLLINEARITY WILL GO HERE*}
+
+The idea of feature selection using Nature-Inspired Algorithms is not new - we have based our project around already existent frameworks that implement those algorithms and apply them as optimizers in preprocessing tasks.\\
+
+One framework that we have used extensively is NiaPy library\cite{niapy}. They have implemented a large collection of nature-inspired algorithms, and provided a simple interface to use them as optimizers. Their library is also used by the Transaction Fraud Detection project, which is based around the same idea of feature selection with the nature-inspired algorithms and has served as an inspiration behind our own project, so we have decided to follow in their footsteps.\\
+
+Later, in the process of searching for another library that is compatible with NiaPy implementation of various nature-insipred algorithms, and would provide a friendly and extendable Python interface to use them as optimizers in combination with Pandas and sklearn libraries, we have found the evopreprocess library\cite{evopreproc}. \\
+
+That library contains several main modules: \texttt{data\_sampling}, \texttt{data\_weighting}, and \texttt{feature\_selection}. Howeveer, only the last module is relevant for our task, so we will only describe its functionality. The task class for \texttt{feature\_selection} in evopreprocess is \texttt{EvoSampling}, which extends \texttt{\_BaseFilter} class from scikit-learn. It is important to list the parameters of that class, as they are going to play a big role in the feature selection process:
+\begin{itemize}
+	\item \texttt{random\_seed} - seed state, by default is equal to system time in milliseconds.
+	\item \texttt{evaluator} - ML approach used to evaluate the data, expecting a scikit-learn-compatible regressor or classifier.
+	\item \texttt{optimizer} - NI optimizer, expecting a NiaPy-copatible method, by default Genetic algorithm
+	\item \texttt{n\_folds} - number of folds for the cross-validation split into training and validation sets
+	\item \texttt{n\_runs} - number of runs of the optimizer on each fold
+	\item \texttt{benchmark} - evaluation class that measures the quality of data sampling. By default optimizes error rate and F-score for classification problems and mean square error for regression problems
+	\item \texttt{n\_jobs} - number of optimizers to be run in parallel, by default equal to the number of your CPU's cores
+\end{itemize}
+
+
 
 \section{Methodology}
 
@@ -75,7 +96,6 @@ tbd
 \section{Conclusion}
 tbd
 
-\section{References}
 \bibliographystyle{plain}
 \bibliography{referens}
 

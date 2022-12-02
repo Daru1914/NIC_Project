@@ -6,4 +6,17 @@ The~World Bank.
 \newblock https://data.worldbank.org/.
 \newblock Accessed: 20122-12-02.
 
+\bibitem{evopreproc}
+Sa{\v{s}}o Karakati{\v{c}}.
+\newblock {EvoPreprocess—Data Preprocessing Framework with Nature-Inspired
+  Optimization Algorithms}.
+\newblock {\em {Mathematics}}, 8(6), 2020.
+
+\bibitem{niapy}
+Grega Vrban{\v{c}}i{\v{c}}, Lucija Brezo{\v{c}}nik, Uro{\v{s}} Mlakar,
+  Du{\v{s}}an Fister, and Iztok {Fister Jr.}
+\newblock {NiaPy: Python microframework for building nature-inspired
+  algorithms}.
+\newblock {\em {Journal of Open Source Software}}, 3, 2018.
+
 \end{thebibliography}
