@@ -1,16 +1,33 @@
 \begin{thebibliography}{1}
 
+\bibitem{ballardini2018tutorial}
+Augusto~Luis Ballardini.
+\newblock A tutorial on particle swarm optimization clustering.
+\newblock {\em arXiv preprint arXiv:1809.01942}, 2018.
+
 \bibitem{world_bank_moment}
 The~World Bank.
 \newblock World bank open data.
 \newblock https://data.worldbank.org/.
-\newblock Accessed: 20122-12-02.
+\newblock Accessed: 2022-12-02.
 
 \bibitem{evopreproc}
 Sa{\v{s}}o Karakati{\v{c}}.
 \newblock {EvoPreprocess—Data Preprocessing Framework with Nature-Inspired
   Optimization Algorithms}.
 \newblock {\em {Mathematics}}, 8(6), 2020.
+
+\bibitem{menard2002applied}
+Scott Menard.
+\newblock {\em Applied logistic regression analysis}.
+\newblock Number 106. Sage, 2002.
+
+\bibitem{sklearnClustering}
+scikit-learn developers.
+\newblock scikit-learn.
+\newblock
+  https://scikit-learn.org/stable/auto\_examples/inspection/plot\_permutation\_importance\_multicollinear.html.
+\newblock Accessed: 2022-12-04.
 
 \bibitem{niapy}
 Grega Vrban{\v{c}}i{\v{c}}, Lucija Brezo{\v{c}}nik, Uro{\v{s}} Mlakar,

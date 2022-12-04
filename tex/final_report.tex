@@ -80,6 +80,30 @@ That library contains several main modules: \texttt{data\_sampling}, \texttt{dat
 
 \section{Methodology}
 
+\subsection{Multicollinearity issue}
+
+\subsubsection{Multicollinearity detection}
+
+First problem that we are going to address in our dataset would be multicollinearity. It can be detected in a dataset by finding the VIF - variance inflation factor, calculated for each feature separately, according to the formula below, where $R^2$ is the coefficient of determination: 
+
+\begin{equation}
+	VIF=\frac{1}{1-R^2}
+\end{equation}
+
+VIF can normally take positive values, and by checking its value for each column, one could determine whether or not a serious issue is detected. Value of VIF greater than 1 identifies existence of some collinearity, greater than 5 is already a cause for concern, and greater than 10 must be addressed\cite{menard2002applied}.\\
+
+As our solution to multicollinearity we have decided to combine 2 techniques: clustering and Particle Swarm Algorithm.\\
+
+\subsubsection{Clustering}
+
+When collinear are present in a dataset, model can gather the same information from one feature, as it can from a group of features. This makes it possible to try and solve multicollinearity by applying clustering with a certain threshold on features, that have been proven to have a correlation\cite{sklearnClustering}. In order to find those correlating features, we could use Spearman correlation, which measures the strength and direction of the monotonic relationship between two variables that can be ordered by transforming their values to ranking in their respective domains and comparing their relationship.\\
+
+\subsubsection{Particle Swarm Optimization Clustering}
+
+Particle Swarm Optimization is one of the most influential Nature-Inspired algorithms that can optimize a problem by iteratively improving a chosen solution, depending on the elected performance measure\cite{ballardini2018tutorial}. This property makes it possible to use PSO for our clustering problem, where the final choice of solution will be determined by the algorithm and defined fitness function.
+
+\subsection{Feature Selection}
+
 In our research, we were able to identify three categories of feature selection methods. Firstly, it is the filter method, which ranks each feature on some statistical metric, and evaluates the ranks afterwards, picking the ones that score the highest. Secondly, it is the wrapper method, which takes a subset of features and trains a model using them. Depending on results of the testing, it adds or removes features from the subset, incrementally improving the performance until user-defined stopping criteria is achieved. Thirdly, it is the embedded method, which is in-built into models themselves - it add a penalizing term to the regression equation (en example of such a model would be Lasso Regression).\\
 
 Among all categories mentioned, wrapper method has the highest computational costs, but can provide the best dataset that would provide the most accurate results for our model. It can also include nature-inspired algorithms as its estimators, making \textbf{wrapped} category of feature selection models our preferred choice. 

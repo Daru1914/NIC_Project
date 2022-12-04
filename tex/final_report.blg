@@ -5,44 +5,46 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 Database file #1: referens.bib
-You've used 3 entries,
+Warning--there's a number but no series in menard2002applied
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            514 strings with 4488 characters,
-and the built_in function-call counts, 783 in all, are:
-= -- 72
-> -- 42
-< -- 0
-+ -- 17
-- -- 14
-* -- 45
-:= -- 149
-add.period$ -- 10
-call.type$ -- 3
-change.case$ -- 16
+            530 strings with 4890 characters,
+and the built_in function-call counts, 1439 in all, are:
+= -- 137
+> -- 63
+< -- 1
++ -- 27
+- -- 20
+* -- 70
+:= -- 265
+add.period$ -- 21
+call.type$ -- 6
+change.case$ -- 27
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 27
-empty$ -- 58
-format.name$ -- 14
-if$ -- 155
+cite$ -- 7
+duplicate$ -- 56
+empty$ -- 119
+format.name$ -- 20
+if$ -- 295
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 2
-newline$ -- 19
-num.names$ -- 6
-pop$ -- 18
+int.to.str$ -- 6
+missing$ -- 5
+newline$ -- 35
+num.names$ -- 12
+pop$ -- 38
 preamble$ -- 1
-purify$ -- 13
+purify$ -- 22
 quote$ -- 0
-skip$ -- 21
+skip$ -- 38
 stack$ -- 0
-substring$ -- 15
-swap$ -- 3
-text.length$ -- 0
+substring$ -- 31
+swap$ -- 7
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
-warning$ -- 0
-while$ -- 6
-width$ -- 4
-write$ -- 35
+type$ -- 22
+warning$ -- 1
+while$ -- 12
+width$ -- 7
+write$ -- 67
+(There was 1 warning)
