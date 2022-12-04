@@ -51,9 +51,9 @@ Performing feature selection allows us to solve a great number of problems, bein
 
 However, the main problem that can be solved by feature selection for multiple regression models (and will be addressed specifically in our project) is \textbf{multicollinearity}. Multicollinearity is an effect when multiple explanatory variables that are believed to me independent from each other, are in fact, closely interrelated. This can have damaging effects on the accuracy of prediction models, as even a small change in data will lead to unpredictable results. Ideally, feature selections would find such relationships and purge the dataset from them, our model aims to do so as well.\\
 
-As to the practical applications of our project, we have decided to stick to the original project proposal and test it on a new dataset that would contain various countrywide statistics as features that will try to predict the population growth for a country in a given year. Since we have found no such dataset that would have suited our needs, it was created from scratch, using data provided by the World Bank Open Data site\cite{world_bank_moment}. However, during our work on the project, we have decided to also test other similar datasets, that could be used for a multiple regression model, to figure out if our implemented feature selection process can be used more generally.
+As to the practical applications of our project, we have decided to stick to the original project proposal and test it on a new dataset that would contain various countrywide statistics as features that will try to predict the population growth for a country in a given year. Since we have found no such dataset that would have suited our needs, it was created from scratch, using data provided by the World Bank Open Data site\cite{world_bank_moment}. However, during our work on the project, we have decided to also test other similar datasets, that could be used for a multiple regression model, to figure out if our implemented feature selection process can be used more generally.\\
 
-\textbf{*NEW INFO ABOUT OTHER DATASETS WILL BE ADDED HERE*}
+With that goal in mind, during the testing process we have resorted several times to generating new datasets (both for regression and classification problems) with the help of tools provided by the sklearn libraries, with randomly assigned or manually set parameters.
 
 \section{Related Work}
 
@@ -100,7 +100,17 @@ When collinear are present in a dataset, model can gather the same information f
 
 \subsubsection{Particle Swarm Optimization Clustering}
 
-Particle Swarm Optimization is one of the most influential Nature-Inspired algorithms that can optimize a problem by iteratively improving a chosen solution, depending on the elected performance measure\cite{ballardini2018tutorial}. This property makes it possible to use PSO for our clustering problem, where the final choice of solution will be determined by the algorithm and defined fitness function. The solutions to our optimization problem will be represented as particles, 
+Particle Swarm Optimization is one of the most influential Nature-Inspired algorithms that can optimize a problem by iteratively improving a chosen solution, depending on the elected performance measure\cite{ballardini2018tutorial}. This property makes it possible to use PSO for our clustering problem, where the final choice of solution will be determined by the algorithm and defined fitness function. The solutions to our optimization problem will be represented as particles, and the aim of the algorithm will be to adjust those particles' position according to the best one found so far, and the best position in the neighborhood of that particle.
+
+\subsubsection{Implementing PSO for Clustering}
+
+PSO can be directly applied to our clustering problem. As was stated before, it can be based on the table containing variables that represent how similar one feature is to another. It is filled according to the formula, where $spr(i, j)$ is the Spearman coefficient between features numbered $i$ and $j$:
+
+\begin{equation}
+	x_{i, j}=1-spr(i, j)
+\end{equation}
+
+The algorithm will be checking the table to find features that are most closely correlated, and grouping them in clusters, later selecting one of the features from the cluster to explain the influence of all of them onto the target. Ideally, that would remove the multicollinearity problem, and allow us to reduce the number of features in the dataset without significantly harming the predictive capacity of the model.
 
 \subsection{Feature Selection}
 
