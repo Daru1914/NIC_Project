@@ -41,7 +41,7 @@ tbd
 \end{abstract}
 
 \begin{IEEEkeywords}
-tbd
+multicollinearity, clustering, particle swarm optimization
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -79,6 +79,13 @@ That library contains several main modules: \texttt{data\_sampling}, \texttt{dat
 
 
 \section{Methodology}
+
+\subsection{Linear model selection}
+We have designed and trained two separate tools for this task. Each is concerned with one of the two main branches of Supervised Learning problems (Classification and Regression).
+The model concerned with Regression problems was a choice among many models that were trained and tested on the dataset that was manually built by our team from the world data bank (Ransac and Linear Regression, Decision Tree, Random Forest, etc…). These models were fine-tuned using Cross-Validation Method in order to be customized so that they generate the most accurate predictions. After that, the model with the lowest mean squared error was chosen (Ransac Regressor).\\
+
+The model concerned with classification was determined in a similar manner. We built and trained several models (KNN, Logistic Regression, Decision Tree, Random Forest, etc...) using a dataset generated specifically for this purpose. Then, the models were similarly tuned to give highly valuable insights into our dataset and the model with the highest accuracy was chosen.
+
 
 \subsection{Multicollinearity issue}
 
@@ -122,10 +129,16 @@ Among all categories mentioned, wrapper method has the highest computational cos
 $https://github.com/Daru1914/NIC\_Project$
 
 \section{Experiments and Evaluation}
-tbd
+
+While initially the goal of the project was to evaluate the population growth dataset, the goals were expanded to include testing for any unoptimized generic dataset, which is why our testing not only covers the regression models, but also the classification ones.
+
+\subsection{Testing for Elimination of Multicollinearity}
+
+First part of preprocessing that we tested was the removal of multicollinearity with the help of clustering and PSO algorithm. Using modules imported from sklearn, we generated a batch of 100 datasets. Each one was used for classification task with logistic regression, and contained 25 features with 8 informative ones and 6 redundant ones. However, initial implementation of the PSO contained mistakes, and some useful features where removed by the algorithm, because of which the accuracy of predictions in general became significantly worse after preprocessing.
 
 \section{Analysis and Observations}
-tbd
+
+
 
 \section{Conclusion}
 tbd
