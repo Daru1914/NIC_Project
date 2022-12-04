@@ -134,11 +134,28 @@ While initially the goal of the project was to evaluate the population growth da
 
 \subsection{Testing for Elimination of Multicollinearity}
 
-First part of preprocessing that we tested was the removal of multicollinearity with the help of clustering and PSO algorithm. Using modules imported from sklearn, we generated a batch of 100 datasets. Each one was used for classification task with logistic regression, and contained 25 features with 8 informative ones and 6 redundant ones. However, initial implementation of the PSO contained mistakes, and some useful features where removed by the algorithm, because of which the accuracy of predictions in general became significantly worse after preprocessing.
+First part of preprocessing that we tested was the removal of multicollinearity with the help of clustering and PSO algorithm. Using modules imported from sklearn, we generated a batch of 100 datasets. Each one was used for classification task with logistic regression, and contained 25 features with 8 informative ones and 6 redundant ones. However, initial implementation of the PSO contained mistakes, and some useful features where removed by the algorithm, because of which the accuracy of predictions in general became significantly worse after preprocessing.\\
+
+After fixing those mistakes, new tests were run. In general model performed much better, as the accuracy no longer fell by 20-30\% percent after the preprocessing, as was the case before. In order to interpret the results of testing more effectively, we have modified the output to include counters of the number of times performance was improved, and the number of times performance has decreased, and ran the output again. The results of that testing showed that:
+
+\begin{table}[htbp]
+	\caption{Testing results}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Tests number}&\textbf{Increased accuracy}&\textbf{Decreased accuracy} \\
+			\hline
+			100&16&49\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+From those results it could be concluded that our preprocessing was ineffective and produced too many results with decreased accuracy. However, our testing was also somewhat flawed. One of the main positive consequences of dealing with multicollinearity is removal of useless features, and it wasn't tracked at all during testing. Moreover, manual observation of results of each test showed that in most of the cases where accuracy suffered, it was only reduced by a very small fraction. Keeping those observations in mind, we have redesigned the testing process.\\
+
 
 \section{Analysis and Observations}
-
-
+tbd
 
 \section{Conclusion}
 tbd
