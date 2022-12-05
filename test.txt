@@ -1,0 +1,20 @@
+test 0
+random state: 90, inf feat: 6, red feat: 9
+accuracy with 25 features :0.86125
+accuracy with 7 features removed:0.86125
+
+test 1
+random state: 141, inf feat: 12, red feat: 10
+accuracy with 25 features :0.7825
+accuracy with 8 features removed:0.7825
+
+test 2
+random state: 87, inf feat: 9, red feat: 10
+accuracy with 25 features :0.925
+accuracy with 8 features removed:0.92375
+
+test 3
+random state: 98, inf feat: 11, red feat: 10
+accuracy with 25 features :0.8
+accuracy with 7 features removed:0.8
+
