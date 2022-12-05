@@ -11,6 +11,19 @@ The~World Bank.
 \newblock https://data.worldbank.org/.
 \newblock Accessed: 2022-12-02.
 
+\bibitem{twdMLfeatsec}
+Indraneel~Dutta Baruah.
+\newblock Deep-dive on ml techniques for feature selection in python - part 1.
+\newblock
+  https://towardsdatascience.com/deep-dive-on-ml-techniques-for-feature-selection-in-python-part-1-3574269d5c69.
+\newblock Accessed: 2022-12-02.
+
+\bibitem{fister2013brief}
+Iztok Fister~Jr, Xin-She Yang, Iztok Fister, Janez Brest, and Du{\v{s}}an
+  Fister.
+\newblock A brief review of nature-inspired algorithms for optimization.
+\newblock {\em arXiv preprint arXiv:1307.4186}, 2013.
+
 \bibitem{evopreproc}
 Sa{\v{s}}o Karakati{\v{c}}.
 \newblock {EvoPreprocess—Data Preprocessing Framework with Nature-Inspired

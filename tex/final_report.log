@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.8)  5 DEC 2022 11:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.8)  5 DEC 2022 15:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -421,7 +421,11 @@ ex.def
 File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count313
 \l__pdf_internal_box=\box64
-) (final_report.aux)
+) (final_report.aux
+
+LaTeX Warning: Label `tab1' multiply defined.
+
+)
 \openout1 = `final_report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -589,37 +593,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--125
  []
 
 [2]
-Underfull \hbox (badness 5036) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+
+ []
+
+
+Underfull \hbox (badness 5036) in paragraph at lines 139--140
 \OT1/ptm/m/n/10 al-go-rithm. Us-ing mod-ules im-ported from sklearn, we
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 137--138
+Underfull \hbox (badness 3343) in paragraph at lines 139--140
 \OT1/ptm/m/n/10 How-ever, ini-tial im-ple-men-ta-tion of the PSO con-tained
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
 
-Underfull \hbox (badness 3281) in paragraph at lines 154--155
+Underfull \hbox (badness 3281) in paragraph at lines 157--158
 []\OT1/ptm/m/n/10 From those re-sults it could be con-cluded that our
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
+Package textcomp Info: Symbol \textnumero not provided by
+(textcomp)             font family ptm in TS1 encoding.
+(textcomp)             Default family used instead on input line 166.
+
+Overfull \hbox (47.32913pt too wide) in paragraph at lines 164--172
+ [] 
+ []
+
 (final_report.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
+Underfull \hbox (badness 10000) in paragraph at lines 39--44
 []\OT1/ptm/m/n/8 scikit-learn de-vel-op-ers.  scikit-learn.  https://scikit-
  []
 
 
-Overfull \hbox (61.3805pt too wide) in paragraph at lines 26--31
+Overfull \hbox (61.3805pt too wide) in paragraph at lines 39--44
 \OT1/ptm/m/n/8 learn.org/stable/auto[]examples/inspection/plot[]permutation[]im
 portance[]multicollinear.html.
  []
@@ -628,7 +650,7 @@ portance[]multicollinear.html.
 <fig1.png, id=19, 82.1469pt x 71.5473pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 189.
+Package pdftex.def Info: fig1.png  used on input line 205.
 (pdftex.def)             Requested size: 82.14668pt x 71.5471pt.
 
 
@@ -642,33 +664,39 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./fig1.png (PNG copy)>] (final_report.aux) ) 
+[3] [4
+
+ <./fig1.png (PNG copy)>] (final_report.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 7948 strings out of 475385
- 146465 string characters out of 2777379
- 540177 words of memory out of 3000000
- 29195 multiletter control sequences out of 15000+600000
- 510110 words of font info for 104 fonts, out of 8000000 for 9000
+ 7956 strings out of 475385
+ 146555 string characters out of 2777379
+ 544232 words of memory out of 3000000
+ 29201 multiletter control sequences out of 15000+600000
+ 510761 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,81p,753b,312s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{C:/Users/user/AppData/Local/Pr
-ograms/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/user/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/user/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/user/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/user/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users
-/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
-/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courie
-r/ucrr8a.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times
-/utmb8a.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
-utmbi8a.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
-utmr8a.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/u
-tmri8a.pfb>
-Output written on final_report.pdf (3 pages, 160760 bytes).
+ 75i,11n,81p,772b,342s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\user\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrb0
+800.pk>{C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc
+}<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr6.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/user/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/user/AppData/Local/
+Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/user/AppData/Local
+/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/user/AppData/Local/
+Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/user/AppData/Local/
+Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/user/AppData/Local/P
+rograms/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on final_report.pdf (4 pages, 163720 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 82 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
