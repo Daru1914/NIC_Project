@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.8)  5 DEC 2022 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.8)  5 DEC 2022 18:58
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -557,100 +557,112 @@ Underfull \hbox (badness 1635) in paragraph at lines 68--70
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
+Underfull \hbox (badness 10000) in paragraph at lines 82--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 102--103
+Underfull \hbox (badness 1360) in paragraph at lines 99--100
 []\OT1/ptm/m/n/10 As our so-lu-tion to mul-ti-collinear-ity we have de-cided
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 1817) in paragraph at lines 103--104
+\OT1/ptm/m/n/10 trans-form-ing their val-ues to rank-ing in their re-spec-tive
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 
-Underfull \hbox (badness 7777) in paragraph at lines 110--111
+Underfull \hbox (badness 7777) in paragraph at lines 107--108
  \OT1/ptm/m/it/10 3) Par-ti-cle Swarm Op-ti-miza-tion Clus-ter-ing: [][] \OT1/p
 tm/m/n/10 Par-ti-cle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
+Underfull \hbox (badness 1668) in paragraph at lines 107--108
+\OT1/ptm/m/n/10 im-prov-ing a cho-sen so-lu-tion, de-pend-ing on the elected
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
 
-Underfull \hbox (badness 5036) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+
+Underfull \hbox (badness 5036) in paragraph at lines 149--150
 \OT1/ptm/m/n/10 al-go-rithm. Us-ing mod-ules im-ported from sklearn, we
  []
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 139--140
+Underfull \hbox (badness 3343) in paragraph at lines 149--150
 \OT1/ptm/m/n/10 How-ever, ini-tial im-ple-men-ta-tion of the PSO con-tained
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
 
  []
 
 
-Underfull \hbox (badness 3281) in paragraph at lines 157--158
+Underfull \hbox (badness 3281) in paragraph at lines 167--168
 []\OT1/ptm/m/n/10 From those re-sults it could be con-cluded that our
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
-Package textcomp Info: Symbol \textnumero not provided by
-(textcomp)             font family ptm in TS1 encoding.
-(textcomp)             Default family used instead on input line 166.
 
-Overfull \hbox (47.32913pt too wide) in paragraph at lines 164--172
+Overfull \hbox (50.17453pt too wide) in paragraph at lines 174--186
  [] 
  []
 
-(final_report.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 39--44
+[3] (final_report.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 44--49
 []\OT1/ptm/m/n/8 scikit-learn de-vel-op-ers.  scikit-learn.  https://scikit-
  []
 
 
-Overfull \hbox (61.3805pt too wide) in paragraph at lines 39--44
+Overfull \hbox (61.3805pt too wide) in paragraph at lines 44--49
 \OT1/ptm/m/n/8 learn.org/stable/auto[]examples/inspection/plot[]permutation[]im
 portance[]multicollinear.html.
  []
 
 )
-<fig1.png, id=19, 82.1469pt x 71.5473pt>
+<fig1.png, id=22, 82.1469pt x 71.5473pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 205.
+Package pdftex.def Info: fig1.png  used on input line 222.
 (pdftex.def)             Requested size: 82.14668pt x 71.5471pt.
 
 
@@ -664,39 +676,36 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3] [4
-
- <./fig1.png (PNG copy)>] (final_report.aux)
+[4 <./fig1.png (PNG copy)>] (final_report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7956 strings out of 475385
- 146555 string characters out of 2777379
- 544232 words of memory out of 3000000
- 29201 multiletter control sequences out of 15000+600000
- 510761 words of font info for 106 fonts, out of 8000000 for 9000
+ 7952 strings out of 475385
+ 146528 string characters out of 2777379
+ 543235 words of memory out of 3000000
+ 29199 multiletter control sequences out of 15000+600000
+ 510110 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,81p,772b,342s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\user\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrb0
-800.pk>{C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc
-}<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmmi7.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmr10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr6.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/user/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/user/AppData/Local/
-Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/user/AppData/Local
-/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/user/AppData/Local/
-Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/user/AppData/Local/
-Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/user/AppData/Local/P
-rograms/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_report.pdf (4 pages, 163720 bytes).
+ 75i,11n,81p,772b,312s stack positions out of 10000i,1000n,20000p,200000b,80000s
+{C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/
+Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmmi7.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr10.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmr7.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/user/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/user/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/user/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/user/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/user/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/user/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on final_report.pdf (4 pages, 165549 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

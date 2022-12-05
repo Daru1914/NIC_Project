@@ -35,6 +35,11 @@ Scott Menard.
 \newblock {\em Applied logistic regression analysis}.
 \newblock Number 106. Sage, 2002.
 
+\bibitem{piotrowski2020population}
+Adam~P Piotrowski, Jaroslaw~J Napiorkowski, and Agnieszka~E Piotrowska.
+\newblock Population size in particle swarm optimization.
+\newblock {\em Swarm and Evolutionary Computation}, 58:100718, 2020.
+
 \bibitem{sklearnClustering}
 scikit-learn developers.
 \newblock scikit-learn.
