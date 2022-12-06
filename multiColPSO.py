@@ -6,7 +6,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sko.PSO import PSO
+# from sko.PSO import PSO
 
 
 def display_heat_map(data: pd.DataFrame, title: str):
@@ -86,10 +86,9 @@ class PsoMultiCol:
 
         # how similar the points are inside a single cluster
         inner_cluster_score = 0
-        for c, names in cluster_names.items():
-            inner_cluster_score += (1 + np.exp(self.dis_matrix.loc[names, names].values.sum())) / np.log(
-                len(names) + np.exp(1))
-            # inner_cluster_score += 1 + np.nanmean(self.dis_matrix.loc[names, names])
+        for c, names in cluster_feats.items():
+            inner_cluster_score += (1 + np.exp(self.dis_matrix.iloc[names, names].values.sum())) \
+                                   / np.log(len(names) + np.exp(1))
 
         # new_dist_matrix = self.dis_matrix.loc[new_order[::-1], new_order]
         # display_heat_map(new_dist_matrix, title)
@@ -105,7 +104,7 @@ class PsoMultiCol:
         lower_bound = np.zeros(self.num_feats)
         upper_bound = np.full(shape=self.num_feats, fill_value=num_clusters, dtype="float")
 
-        pso = PSO(func=pso_function, n_dim=self.num_feats, pop=15, max_iter=self.max_iter, lb=lower_bound,
+        pso = sko.PSO.PSO(func=pso_function, n_dim=self.num_feats, pop=15, max_iter=self.max_iter, lb=lower_bound,
                           ub=upper_bound, c1=1.5, c2=1.5)
         pso.run()
 
