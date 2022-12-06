@@ -34,4 +34,4 @@ with the considered dataset as per with the initial proposal..
 * tex: folder containing the source code and the accompagning necessary files for the final report.
 
 ## Further details
-For more detailed explanation of the project, please consider reading our report about our [experimental project]()
+For more detailed explanation of the project, please consider reading our report about our [experimental project](https://github.com/Daru1914/NIC_Project/blob/final/tex/final_report.pdf)
