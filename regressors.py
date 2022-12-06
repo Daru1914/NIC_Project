@@ -67,6 +67,26 @@ def load_model(path):
         return pickle.load(f)
 
 
+def apply_model(model, X_train, X_test, y_train, y_test, params_grid, save=True, save_path=None, test_size=0.2 ,
+                tune_metric=None, test_metrics=None, cv=None):
+    # the dataset passed is assumed to be ready to be processed
+    # all its features are numerical and all its missing values are imputed/discarded
+
+    if save and save_path is None:
+        raise ValueError("Please pass a path to save the model or set the 'save' parameter to False")
+
+    # tune the model
+    tuned_model = tune_model(model, params_grid, X_train, y_train, cv=cv, scoring=tune_metric)
+
+    # evaluate teh tuned model
+    model, results = evaluate_tuned_model(tuned_model, X_train, X_test, y_train, y_test, metrics=test_metrics)
+    # save the model to the passed path
+    if save:
+        save_model(tuned_model, save_path)
+
+    return model, results
+
+
 def try_model(model, X, y, params_grid, save=True, save_path=None, test_size=0.2, tune_metric=None,
               test_metrics=None, cv=None):
     # the dataset passed is assumed to be ready to be processed
