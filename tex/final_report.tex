@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage{listings}
 \usepackage{minted}
 \usepackage{textcomp}
 \usepackage{xcolor}
@@ -21,7 +22,7 @@
 Innopolis, Russian Federation \\
 a.bouabid@innopolis.university}
 \and
-\IEEEauthorblockN{Majid Naser}
+\IEEEauthorblockN{Majed Naser}
 \IEEEauthorblockA{\textit{DS-01} \\
 \textit{Innopolis University}\\
 Innopolis, Russian Federation \\
@@ -41,27 +42,41 @@ tbd
 \end{abstract}
 
 \begin{IEEEkeywords}
-multicollinearity, clustering, particle swarm optimization
+multicollinearity, clustering, nature-inspired algorithms, particle swarm optimization
 \end{IEEEkeywords}
 
 \section{Introduction}
-Quality data preprocessing is an important prerequisite to creating accurate machine learning models. It solves a wide range of problems, from missing data and data inconsistency to required anonymization. In our project we have decided to focus primarily on one aspect of it, that is, \textbf{feature selection}. \\
 
-Performing feature selection allows us to solve a great number of problems, being especially effective in large datasets containing many features. It improves accuracy of predictions by finding and eliminating spurious relationships, as well as reducing the chances of overfitting. Other effects of feature selection are the improvement of training time for the model through cutting down on unnecessary data, and increase in interpretability, as fewer features have to be analyzed to figure out the dependencies. \\
+The initial goals that we have set in this project was applying nature-inspired algorithms as optimizers to the dataset that contained various features that were supposed to predict population growth. The resulting dataset would be evaluated by regression Machine Learning (referred to as ML) models, and results of our preprocessing would be evaluated. However, after starting working on the project, it very soon became evident that the project would have had a very small scope, and few opportunities to explore interesting applications of Nature Inspired Algorithms (referred to as NIA). \\ 
 
-However, the main problem that can be solved by feature selection for multiple regression models (and will be addressed specifically in our project) is \textbf{multicollinearity}. Multicollinearity is an effect when multiple explanatory variables that are believed to me independent from each other, are in fact, closely interrelated. This can have damaging effects on the accuracy of prediction models, as even a small change in data will lead to unpredictable results. Ideally, feature selections would find such relationships and purge the dataset from them, our model aims to do so as well.\\
+Therefore, our final project represents a significant extension of the initial proposal. The latter constitutes of predicting the population’s growth using a combination of Machine Learning and Nature Inspired Computing techniques (referred to as NIC). The final project takes this first \emph{\textbf{experimental}} step into a more complex and sophisticated direction. Our team attempts to build a ML preprocessing pipeline almost fully-based on NIC techniques and evaluates its performance with the considered dataset as per with the initial proposal. Such direction was motivated by a number of considerations including:
+\begin{enumerate}
+	\item The performance of ML models is highly correlated with the quality of the data fed to the algorithms. Performing feature selection allows us to solve a great number of problems, being especially effective in large datasets containing many features. It improves accuracy of predictions by finding and eliminating spurious relationships, as well as reducing the chances of overfitting. Other effects of feature selection are the improvement of training time for the model through cutting down on unnecessary data, and increase in interpretability, as fewer features have to be analyzed to figure out the dependencies. Therefore, Feature engineering as well as data preprocessing represent pillars of a high-performing end-to-end ML pipeline.
+	\item Although data preprocessing, manifested mostly in feature selection, represents one of the main applications of NIC algorithms, “feature engineering” on the other hand has not received its fair share of the scientific community’s attention. The “art” of feature engineering, as mentioned above, is a crucial step of Machine Learning pipelines and an extremely valuable skill for each and every ML practitioner. Our project attempts to build an NIC-based framework for two major “feature engineering techniques”:
+	\begin{itemize}
+		\item Eliminating multicollinearity
+		\item Feature transformations
+	\end{itemize}
+	\item If we succeed in developing preprocessing that will efficiently reduce the number of features in the initial dataset, the pipeline that we developed will have to be tested on other similar datasets in order to demonstrate its effectiveness. The problem of predicting population growth covers a lot of the same variables that would be useful in predicting other statistics important in banking, finance, or government, so if our model proves its effectiveness on a more generic dataset, its area of applicability will expand significantly.\\
+	
+\end{enumerate}
 
-As to the practical applications of our project, we have decided to stick to the original project proposal and test it on a new dataset that would contain various countrywide statistics as features that will try to predict the population growth for a country in a given year. Since we have found no such dataset that would have suited our needs, it was created from scratch, using data provided by the World Bank Open Data site\cite{world_bank_moment}. However, during our work on the project, we have decided to also test other similar datasets, that could be used for a multiple regression model, to figure out if our implemented feature selection process can be used more generally.\\
-
-With that goal in mind, during the testing process we have resorted several times to generating new datasets (both for regression and classification problems) with the help of tools provided by the sklearn libraries, with randomly assigned or manually set parameters.
+With that goal in mind, during the testing process we have resorted several times to generating new datasets (both for regression and classification problems) with the help of tools provided by the sklearn libraries, with randomly assigned or manually set parameters.\\
+	
+Our project will have the following structure:
+\begin{enumerate}
+	\item Data Preparation
+	\item Multicollinearity Reduction using \textbf{Particle Swarm Optimization} algorithm
+	\item Feature selection with \textbf{Cuckoo Search} algorithm
+	\item Feature transformations with \textbf{Genetic Algorithms}
+	\item Additional minimalistic preprocessing of the dataset and comparison of a number of ML models performances with and without our experimental pipeline.
+\end{enumerate}
 
 \section{Related Work}
 
-\textbf{*NEW INFO ABOUT SOLVING MULTICOLLINEARITY WILL GO HERE*}
-
 The idea of feature selection using Nature-Inspired Algorithms is not new - we have based our project around already existent frameworks that implement those algorithms and apply them as optimizers in preprocessing tasks.\\
 
-One framework that we have used extensively is NiaPy library\cite{niapy}. They have implemented a large collection of nature-inspired algorithms, and provided a simple interface to use them as optimizers. Their library is also used by the Transaction Fraud Detection project, which is based around the same idea of feature selection with the nature-inspired algorithms and has served as an inspiration behind our own project, so we have decided to follow in their footsteps.\\
+One framework that we have used in our project is NiaPy library\cite{niapy}. They have implemented a large collection of nature-inspired algorithms, and provided a simple interface to use them as optimizers. Their library is also used by the Transaction Fraud Detection project, which is based around the same idea of feature selection with the nature-inspired algorithms and has served as an inspiration behind our own project, so we have decided to follow in their footsteps.\\
 
 Later, in the process of searching for another library that is compatible with NiaPy implementation of various nature-insipred algorithms, and would provide a friendly and extendable Python interface to use them as optimizers in combination with Pandas and sklearn libraries, we have found the evopreprocess library\cite{evopreproc}. \\
 
@@ -78,17 +93,36 @@ That library contains several main modules: \texttt{data\_sampling}, \texttt{dat
 
 \section{Methodology}
 
-\subsection{Linear model selection}
-We have designed and trained two separate tools for this task. Each is concerned with one of the two main branches of Supervised Learning problems (Classification and Regression).
-The model concerned with Regression problems was a choice among many models that were trained and tested on the dataset that was manually built by our team from the world data bank (Ransac and Linear Regression, Decision Tree, Random Forest, etc…). These models were fine-tuned using Cross-Validation Method in order to be customized so that they generate the most accurate predictions. After that, the model with the lowest mean squared error was chosen (Ransac Regressor).\\
+\subsection{Data preparation}
 
-The model concerned with classification was determined in a similar manner. We built and trained several models (KNN, Logistic Regression, Decision Tree, Random Forest, etc...) using a dataset generated specifically for this purpose. Then, the models were similarly tuned to give highly valuable insights into our dataset and the model with the highest accuracy was chosen.
+The population’s growth dataset was built upon the different datasets made available by the “world bank of data”\cite{world_bank_moment}. In this regression problem, models are predicting the annual demographic growth based on features covering a country’s significant statistics\cite{kelley1973population}\cite{sinnathurai2013empirical}, such as: 
+\begin{enumerate}
+	\item Population: age, dependency ratio, etc.
+	\item Agriculture: annual food production, etc.
+	\item Health: mortality rate, etc.
+	\item Education: percentage of school enrollment, etc.
+\end{enumerate}
+
+Furthermore, some inputting and interpolation methods were applied, such as:
+\begin{itemize}
+	\item Spline - efficient for inputting piece-wise changeing of variables, it preserves the seasonality in data.
+	\item Linear - based on the assumption that the datapoints are linearly spaced in time, as is likely for the type of data that we collect.	
+\end{itemize}
 
 \subsection{Multicollinearity issue}
 
+\subsubsection{Problem description}
+
+Before describing our approach to solve the \textbf{multicollinearity} problem, it is of significance to better describe the statistical phenomena. Mutlicollinearity manifests itself when one or more predictors (features) can be predicted with high accuracy using the other predictors. This statistical phenomena leads to several issues:
+
+\begin{itemize}
+	\item The coefficients computed by linear models can be sensitive even to small changes in the data, leading to significant generalization error
+	\item The model's interpretability and estimation of features' importance suffers, as is the case with one of the most robust ML models: random forest\cite{sklearn_permutation}.	
+\end{itemize}
+
 \subsubsection{Multicollinearity detection}
 
-First problem that we are going to address in our dataset would be multicollinearity. It can be detected in a dataset by finding the VIF - variance inflation factor, calculated for each feature separately, according to the formula below, where $R^2$ is the coefficient of determination: 
+Multicollinearity can be detected in a dataset by finding the VIF - variance inflation factor, calculated for each feature separately, according to the formula below, where $R^2$ is the coefficient of determination: 
 
 \begin{equation}
 	VIF=\frac{1}{1-R^2}
@@ -100,13 +134,25 @@ As our solution to multicollinearity we have decided to combine 2 techniques: cl
 
 \subsubsection{Clustering}
 
-When collinear features are present in a dataset, model can gather the same information from one feature, as it can from a group of features. This makes it possible to try and solve multicollinearity by applying clustering with a certain threshold on features, that have been proven to have a correlation\cite{sklearnClustering}. In order to find those correlating features, we could use Spearman correlation, which measures the strength and direction of the monotonic relationship between two variables that can be ordered by transforming their values to ranking in their respective domains and comparing their relationship.\\
+Our solution is inspired by the following approach that is presented in the sklearn documentation\cite{sklearn_permutation}:
+\begin{enumerate}
+	\item Consider the Spearman correlation as a distance measurement.
+	\item Build hierarchical clustering using Ward's clustering algorithm.
+	\item Determine a threshold for cutting the resulting dendogram.
+	\item Group the features according to the remaining clusters and keeping a single feature out of every group.	
+\end{enumerate}
 
 \subsubsection{Particle Swarm Optimization Clustering}
 
-Particle Swarm Optimization is one of the most influential Nature-Inspired algorithms that can optimize a problem by iteratively improving a chosen solution, depending on the elected performance measure\cite{ballardini2018tutorial}. This property makes it possible to use PSO for our clustering problem, where the final choice of solution will be determined by the algorithm and defined fitness function. The solutions to our optimization problem will be represented as particles, and the aim of the algorithm will be to adjust those particles' position according to the best one found so far, and the best position in the neighborhood of that particle.\\
+Particle Swarm Optimization is one of the most influential Nature-Inspired algorithms that can optimize a problem by iteratively improving a chosen solution, depending on the elected performance measure\cite{ballardini2018tutorial}. This property makes it possible to use PSO for our clustering problem, where the final choice of solution will be determined by the algorithm and defined fitness function. The solutions to our optimization problem will be represented as particles, and the aim of the algorithm will be to adjust those particles' position according to the best one found so far, and the best position in the neighborhood of that particle. The formula according to which particle score is calculated is given below:\\
 
-Implementation of PSO that we used in our work has specific parameters, the values we assigned to them as well and the reasoning behind those assignments are listed below:
+\begin{equation}
+	score(particle)=\sum_{i=1}^{N_c}\dfrac{1+e^{\sum_{k, j\in C_i}^{}dis(f_k, f_j)}}{\log(e+|C_i|)}
+\end{equation}
+
+where $N_c$ is umber of clusters in the particle, $C_i$ is set of features belonging to i-th cluster, $f_i$ is i-th feature as a vector.\\
+
+Implementation of PSO that we used in our work has specific important parameters, the values we assigned to them as well and the reasoning behind those assignments are listed below:
 \begin{itemize}
 	\item \texttt{func} - contains the function that PSO will be trying to optimize, in our case is equal to the cluster scores
 	\item \texttt{n\_dim} - contains the number of parameters of func, in our case is equal to the number of features
@@ -117,18 +163,37 @@ Implementation of PSO that we used in our work has specific parameters, the valu
 
 \subsubsection{Implementing PSO for Clustering}
 
-PSO can be directly applied to our clustering problem. As was stated before, it can be based on the table containing variables that represent how similar one feature is to another. It is filled according to the formula, where $spr(i, j)$ is the Spearman coefficient between features numbered $i$ and $j$:
+PSO can be directly applied to our clustering problem. As was stated before, it can be based on the table containing variables that represent how similar one feature is to another. It is filled according to the formula, where $spr(i, j)$ is the Spearman coefficient between features numbered $i$ and $j$ (the resulting heatmap is shown on Fig.2):
+
+\begin{figure}[hbt!]
+	\centerline{\includegraphics[scale=0.35]{picture1.jpg}}
+	\caption{Heatmap with clustered features.}
+	\label{fig}
+\end{figure}
+
+\begin{figure}[hbt!]
+	\centerline{\includegraphics[scale=0.35]{picture2.jpg}}
+	\caption{Full heatmap of distances.}
+	\label{fig}
+\end{figure}
 
 \begin{equation}
 	x_{i, j}=1-spr(i, j)
 \end{equation}
 
-The algorithm will be checking the table to find features that are most closely correlated, and grouping them in clusters, later applying Principal Component Analysis to select one of the features from the cluster to explain the influence of all of them onto the target. Ideally, that would remove the multicollinearity problem, and allow us to reduce the number of features in the dataset without significantly harming the predictive capacity of the model.
+The algorithm will be checking the table to find features that are most closely correlated, and grouping them in clusters (Fig. 1), later applying Principal Component Analysis to select one of the features from the cluster to explain the influence of all of them onto the target. Ideally, that would remove the multicollinearity problem, and allow us to reduce the number of features in the dataset without significantly harming the predictive capacity of the model. \\ \\ \\
 
-\subsection{Feature Transformation}
-
-Another important step in the preprocessing that we designed is feature transformation. The goal of that step is to improve linear correlation of different features with the target by applying 
-various functions (e.g. polynomial, square root, quantile transformation) on predictors until the accuracy of prediction improves. This idea is compatible with Nature-Inspired Algorithms to produce a combined solution. In our case feature transformation was used in conjunction with the Genetic Algorithm, where the chromosome was represented by the list of specific transformations applied to each feature. The dataset resulting from applying the transformations described in the chromosome onto the initial dataset is evaluated, and new chromosomes are generated after randomly mutating the existing ones. Eventually we will reach a dataset, where features are capable of more effectively predicting the target variable. 
+\begin{lstlisting}[]{Clustering pseudocode}
+	for feature in features:
+	if feature.VIF > 2.5:
+	n.add(feature)
+	n.compute_correlation_matrix()
+	n.get_distance_matrix(n.correlation_matrix)
+	clusters = n.create_clusters(n.distance_matrix)
+	for cluster in clusters:
+	final_feats.add(cluster.apply_pca())
+	return final_feats
+\end{lstlisting}
 
 \subsection{Feature Selection}
 
@@ -136,7 +201,12 @@ In our research, we were able to identify three categories of feature selection 
 
 Among all categories mentioned, wrapper method has the highest computational costs, but can provide the best dataset that would provide the most accurate results for our model. It can also include nature-inspired algorithms as its estimators, making \textbf{wrapped} category of feature selection models our preferred choice.\\
 
-NiaPy library provides many implementations of different nature-inspired algorithms, and using all of them in our project would have been very inefficient. Because of that we have decided to select those algorithms that received positive feedback as optimizers in feature selection problems: Genetic Algorithm, Clonal Selection Algorithm, Harmony Search, Artificial Bee Colony Algorithm, Firefly Algorithm, Particle Swarm Algorithm\cite{fister2013brief}.\\ 
+NiaPy library provides many implementations of different nature-inspired algorithms, and using all of them in our project would have been very inefficient. Since we already do most of the preprocessing ourselves and without aid from the evopreprocess library, and use some nature-inspired algorithms in our work (that is, particle swarm optimization and genetic algorithm), we have decided to use another algorithm as an optimizer for the evopreprocess library. The cuckoo search algorithm, that was taught on the most recent lecture, caught our attention, and after finding out that it was already used for feature selection by researchers\cite{aziz2018modified}\cite{rodrigues2013bcs}, we have decided to select it as the optimizer in \texttt{EvoFeatureSelection} class.\\ 
+
+\subsection{Feature Transformation}
+
+Another important step in the preprocessing that we designed is feature transformation. The goal of that step is to improve linear correlation of different features with the target by applying 
+various functions (e.g. polynomial, square root, quantile transformation) on predictors until the accuracy of prediction improves. This idea is compatible with Nature-Inspired Algorithms to produce a combined solution. In our case feature transformation was used in conjunction with the Genetic Algorithm, where the chromosome was represented by the list of specific transformations applied to each feature. The dataset resulting from applying the transformations described in the chromosome onto the initial dataset is evaluated, and new chromosomes are generated after randomly mutating the existing ones. Eventually we will reach a dataset, where features are capable of more effectively predicting the target variable. 
 
 \section{Github link}
 $https://github.com/Daru1914/NIC\_Project$
@@ -172,15 +242,15 @@ We have added the option for the number of informative and redundant features to
 \begin{table}[htbp]
 	\caption{Testing for Multicollinearity}
 	\begin{center}
-		\begin{tabular}{|c|c|c|c|c|c|}
+		\begin{tabular}{|c|c|c|c|c|}
 			\hline
-			\textbf{Test}&\textbf{Inform. range}&\textbf{Redund. range}&\textbf{Imp. acc.}&\textbf{Dec. acc.}&\textbf{Avg. rem. feats} \\
+			\textbf{Inform. range}&\textbf{Redund. range}&\textbf{Imp. acc.}&\textbf{Dec. acc.}&\textbf{Avg. rem. feats} \\
 			\hline 
-			1& 6-9& 4-6& 3& 0& 5.5 \\
+			6-9& 4-6& 3& 0& 5.5 \\
 			\hline 
-			2& 6-9& 4-6& 7& 0& 5.44 \\
+			6-9& 4-6& 7& 0& 5.44 \\
 			\hline 
-			3& 6-10& 4-7& 7& 0& 5.44 \\
+			6-10& 4-7& 7& 0& 5.44 \\
 			\hline
 		\end{tabular}
 		\label{tab2}
@@ -189,11 +259,120 @@ We have added the option for the number of informative and redundant features to
 
 Results of the conducted tests confirm our earlier assessment of the effect that PSO clustering has had on the dataset and the multicollinearity problem in particular. It never significantly harms the accuracy of the model and in rare cases even improves it, while also removing more than 20\% of features that are unnecessary and thereby simplifying the work during future preprocessing and prediction. While the increase in performance is not very evident on a fairly small dataset, such as ours, it would be very significant in real-world tasks related to statistical aspects of banking, finance and government.  
 
+\subsection{Transformations testing}
+
+The effect of feature transformations was tested on 3 generated datasets for classification. Each one of them was tested on several classification models, both before and after the observations, and their accuracy score was compared. Said classification models are as follows: 
+
+\begin{enumerate}
+	\item K neighbors classifier with 3 neighbors
+	\item Linear SVM with $C=0.025$
+	\item RBF SVM with $gamma = 2$, $C = 1$
+	\item Decision Tree Classifier with $max_depth = 5$
+	\item Random Forest Classifier with $10$ estimators, $max_depth=5$, $max_features=1$
+\end{enumerate}
+
+The results of that testing are as follows:
+
+\begin{table}[htbp]
+	\caption{Transformations for dataset 0}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Model}&\textbf{Accuracy before transf.}&\textbf{Accuracy after transf.} \\
+			\hline
+			Nearest Neighbors&0.905&0.908125 \\
+			\hline
+			Linear SVM&0.8675&0.885 \\
+			\hline
+			RBF SVM&0.918125&0.92125 \\
+			\hline
+			Decision Tree&0.908125&0.90875 \\
+			\hline
+			Random Forest&0.91875&0.915625 \\
+			\hline
+		\end{tabular}
+		\label{tab3}
+	\end{center}
+\end{table}
+
+\begin{table}[htbp]
+	\caption{Transformations for dataset 1}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Model}&\textbf{Accuracy before transf.}&\textbf{Accuracy after transf.} \\
+			\hline
+			Nearest Neighbors&0.85625&0.868125 \\
+			\hline
+			Linear SVM&0.5375&0.886875 \\
+			\hline
+			RBF SVM&0.885625&0.889375 \\
+			\hline
+			Decision Tree&0.8575&0.870625 \\
+			\hline
+			Random Forest&0.864375&0.8775 \\
+			\hline
+		\end{tabular}
+		\label{tab4}
+	\end{center}
+\end{table}
+
+\begin{table}[htbp]
+	\caption{Transformations for dataset 2}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Model}&\textbf{Accuracy before transf.}&\textbf{Accuracy after transf.} \\
+			\hline
+			Nearest Neighbors&0.894375&0.888125 \\
+			\hline
+			Linear SVM&0.906875&0.90875 \\
+			\hline
+			RBF SVM&0.915625&0.903125 \\
+			\hline
+			Decision Tree&0.901875&0.89875 \\
+			\hline
+			Random Forest&0.91625&0.90625 \\
+			\hline
+		\end{tabular}
+		\label{tab4}
+	\end{center}
+\end{table}
+
+As we can see, feature transformation produced small improvements in accuracy, when accuracy for the initial dataset was high enough, and it produced a major increase in it when accuracy was low (Linear SVM for dataset 1). However, in the testing of the last dataset (which was the most complicated), the feature transformation actually decreased the accuracy by a small amount. It could have been caused by our choice of transformation functions, as they could not capture the complicated relationships of the dataset, as they are mainly applied to make linear relationships more pronounced. 
+
+\subsection{Testing the preprocessing pipeline}
+
+Testing of the population growth dataset on the entire preprocessing pipeline was performed using several selected regression models, that is: Ridge, Lasso, Decision Tree, KNN, Random Forest regressions. We have given the initial dataset to all aforementioned models and done the same thing after putting the dataset through our preprocessing pipeline. Though our implementation allows for a choice of many different metrics to compare the performance of the models, we have decided to stick to the mean square error (MSE). Results of our testing are given below:
+
+\begin{table}[htbp]
+	\caption{Pipeline testing}
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Model}&\textbf{Pre-pipeline MSE}&\textbf{Post-pipeline MSE}\\
+			\hline
+			Ridge&0.179&0.818 \\
+			\hline
+			Lasso&0.179&1.264 \\
+			\hline
+			Decision Tree&0.676&0.791 \\
+			\hline
+			K Neighbors&0.133&0.298 \\
+			\hline
+			Random Forest&0.448&0.580 \\
+			\hline
+		\end{tabular}
+		\label{tab1}
+	\end{center}
+\end{table}
+
 \section{Analysis and Observations}
 tbd
 
 \section{Conclusion}
-tbd
+
+In the end, while our preprocessing pipeline has not managed to improve accuracy of the predictions in comparison to just operating on the given dataset, the drop in accuracy was not significant, and we have managed to rid the dataset of several mostly redundant features in the process. 
 
 \bibliographystyle{plain}
 \bibliography{referens}

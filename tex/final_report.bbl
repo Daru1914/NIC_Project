@@ -1,4 +1,10 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{aziz2018modified}
+Mohamed Abd~El Aziz and Aboul~Ella Hassanien.
+\newblock Modified cuckoo search algorithm with rough sets for feature
+  selection.
+\newblock {\em Neural Computing and Applications}, 29(4):925--934, 2018.
 
 \bibitem{ballardini2018tutorial}
 Augusto~Luis Ballardini.
@@ -18,17 +24,17 @@ Indraneel~Dutta Baruah.
   https://towardsdatascience.com/deep-dive-on-ml-techniques-for-feature-selection-in-python-part-1-3574269d5c69.
 \newblock Accessed: 2022-12-02.
 
-\bibitem{fister2013brief}
-Iztok Fister~Jr, Xin-She Yang, Iztok Fister, Janez Brest, and Du{\v{s}}an
-  Fister.
-\newblock A brief review of nature-inspired algorithms for optimization.
-\newblock {\em arXiv preprint arXiv:1307.4186}, 2013.
-
 \bibitem{evopreproc}
 Sa{\v{s}}o Karakati{\v{c}}.
 \newblock {EvoPreprocess—Data Preprocessing Framework with Nature-Inspired
   Optimization Algorithms}.
 \newblock {\em {Mathematics}}, 8(6), 2020.
+
+\bibitem{kelley1973population}
+Allen~C Kelley.
+\newblock Population growth, the dependency rate, and the pace of economic
+  development.
+\newblock {\em Population Studies}, 27(3):405--414, 1973.
 
 \bibitem{menard2002applied}
 Scott Menard.
@@ -40,12 +46,25 @@ Adam~P Piotrowski, Jaroslaw~J Napiorkowski, and Agnieszka~E Piotrowska.
 \newblock Population size in particle swarm optimization.
 \newblock {\em Swarm and Evolutionary Computation}, 58:100718, 2020.
 
-\bibitem{sklearnClustering}
+\bibitem{rodrigues2013bcs}
+Douglas Rodrigues, Luis~AM Pereira, TNS Almeida, Jo{\~a}o~Paulo Papa, AN~Souza,
+  Caio~CO Ramos, and Xin-She Yang.
+\newblock Bcs: A binary cuckoo search algorithm for feature selection.
+\newblock In {\em 2013 IEEE International symposium on circuits and systems
+  (ISCAS)}, pages 465--468. IEEE, 2013.
+
+\bibitem{sklearn_permutation}
 scikit-learn developers.
-\newblock scikit-learn.
+\newblock Permutation importance with multicollinear or correlated features.
 \newblock
   https://scikit-learn.org/stable/auto\_examples/inspection/plot\_permutation\_importance\_multicollinear.html.
 \newblock Accessed: 2022-12-04.
+
+\bibitem{sinnathurai2013empirical}
+Vijayakumar Sinnathurai.
+\newblock An empirical study on the nexus of poverty, gdp growth, dependency
+  ratio and employment in developing countries.
+\newblock {\em Journal of competitiveness}, 2013.
 
 \bibitem{niapy}
 Grega Vrban{\v{c}}i{\v{c}}, Lucija Brezo{\v{c}}nik, Uro{\v{s}} Mlakar,

@@ -90,7 +90,7 @@ class FeatureTransformer:
         self.data = df
         self.y = y
 
-    def __init__(self, size_pop=50, max_iter=5, prob_mut=0.001, df: pd.DataFrame=None, y:np.array=None, 
+    def __init__(self, size_pop=50, max_iter=200, prob_mut=0.001, df: pd.DataFrame=None, y:np.array=None, 
                  poly_degree:int=5, target_names:list=None):
         # make sure either both df and y are None or both are not None
         if df is None != y is None:
