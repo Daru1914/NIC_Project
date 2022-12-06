@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.8)  6 DEC 2022 23:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.8)  6 DEC 2022 23:17
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -571,7 +571,7 @@ LaTeX Warning: Label `tab4' multiply defined.
 LaTeX Warning: Label `tab1' multiply defined.
 
 
-LaTeX Warning: Label `tab1' multiply defined.
+LaTeX Warning: Label `fig1' multiply defined.
 
 )
 \openout1 = `final_report.aux'.
@@ -754,12 +754,12 @@ Underfull \hbox (badness 3547) in paragraph at lines 174--175
 []\OT1/ptm/m/n/10 We run CPSO for a range value de-ter-mined as
  []
 
-<picture1.jpg, id=144, 557.9244pt x 604.1772pt>
+<picture1.jpg, id=136, 557.9244pt x 604.1772pt>
 File: picture1.jpg Graphic file (type jpg)
 <use picture1.jpg>
 Package pdftex.def Info: picture1.jpg  used on input line 187.
 (pdftex.def)             Requested size: 195.27646pt x 211.46518pt.
-<picture2.jpg, id=145, 557.9244pt x 604.1772pt>
+<picture2.jpg, id=137, 557.9244pt x 604.1772pt>
 File: picture2.jpg Graphic file (type jpg)
 <use picture2.jpg>
 Package pdftex.def Info: picture2.jpg  used on input line 193.
@@ -931,17 +931,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 425--426
 
  []
 
+<picture3.jpg, id=196, 451.6875pt x 279.29344pt>
+File: picture3.jpg Graphic file (type jpg)
+<use picture3.jpg>
+Package pdftex.def Info: picture3.jpg  used on input line 430.
+(pdftex.def)             Requested size: 248.42888pt x 153.61186pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 427--428
+Underfull \hbox (badness 10000) in paragraph at lines 435--436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
  []
 
-(final_report.bbl
+(final_report.bbl [6
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.61 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.61 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.61 
+      <./picture3.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 63--68
 []\OT1/ptm/m/n/8 scikit-learn de-vel-op-ers.  Per-mu-ta-tion im-por-tance with
  []
@@ -964,12 +987,6 @@ sion.html.
  []
 
 )
-<fig1.png, id=204, 82.1469pt x 71.5473pt>
-File: fig1.png Graphic file (type png)
-<use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 468.
-(pdftex.def)             Requested size: 82.14668pt x 71.5471pt.
-
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -981,47 +998,23 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6
-pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.473 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.473 \end{document}
-                    ] [7
-pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.473 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.473 \end{document}
-                    
+[7
 
- <./fig1.png (PNG copy)>] (final_report.aux)
+] (final_report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `final_report.out' has not changed.
-(rerunfilecheck)             Checksum: 1CE0170B22CD809561DE9EF85D0B39AB;3487.
+(rerunfilecheck)             Checksum: 05CE462FAF3D774CA97CAC94420BF2BF;3273.
  ) 
 Here is how much of TeX's memory you used:
- 16078 strings out of 475385
- 269044 string characters out of 2777379
- 851871 words of memory out of 3000000
- 37132 multiletter control sequences out of 15000+600000
- 511206 words of font info for 105 fonts, out of 8000000 for 9000
+ 16070 strings out of 475385
+ 269009 string characters out of 2777379
+ 851803 words of memory out of 3000000
+ 37129 multiletter control sequences out of 15000+600000
+ 510110 words of font info for 104 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,81p,1102b,1453s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 75i,8n,81p,1102b,1453s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/
 Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.
 pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
@@ -1030,19 +1023,18 @@ extra/cmex7.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/public
 1/public/amsfonts/cm/cmmi5.pfb><C:/Users/user/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/user/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/user/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/user/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/user/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/user
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Use
-rs/user/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb
-><C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb>
-<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb>
-<C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><
-C:/Users/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_report.pdf (7 pages, 353828 bytes).
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/user/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/user/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/use
+r/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Us
+ers/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/U
+sers/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Us
+ers/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Us
+ers/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Use
+rs/user/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on final_report.pdf (7 pages, 353733 bytes).
 PDF statistics:
- 308 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 89 named destinations out of 1000 (max. 500000)
+ 176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
