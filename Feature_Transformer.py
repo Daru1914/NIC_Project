@@ -47,8 +47,10 @@ def box_cox(x: pd.Series) -> pd.DataFrame:
     # define the power transformer
     pt = PowerTransformer(method='box-cox', standardize=False)
     values, col_name = get_name(x)
+    new_data = np.abs(values).reshape(-1, 1) + 1
+    assert (new_data > 0).all()
     # take into consideration that box_cox transformation can be solely applied to positive values
-    data = np.sign(values).reshape(-1, 1) * pt.fit_transform(np.abs(values).reshape(-1, 1))
+    data = np.sign(values).reshape(-1, 1) * pt.fit_transform(new_data)
     return pd.DataFrame(data=data, columns=[f"{col_name} - box-cox"])
 
 def yeo_johnson(x:pd.Series)-> pd.DataFrame:
@@ -88,7 +90,7 @@ class FeatureTransformer:
         self.data = df
         self.y = y
 
-    def __init__(self, size_pop=50, max_iter=50, prob_mut=0.001, df: pd.DataFrame=None, y:np.array=None, 
+    def __init__(self, size_pop=50, max_iter=5, prob_mut=0.001, df: pd.DataFrame=None, y:np.array=None, 
                  poly_degree:int=5, target_names:list=None):
         # make sure either both df and y are None or both are not None
         if df is None != y is None:
