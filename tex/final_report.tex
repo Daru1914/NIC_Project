@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage{listings}
 \usepackage{minted}
 \usepackage{textcomp}
@@ -38,7 +39,7 @@ n.pavlenko@innopolis.university}
 \maketitle
 
 \begin{abstract}
-tbd
+Preprocessing and dataset optimization play an important role in machine learning models. Nature-inspired algorithms such as particle swarm optimization, genetic algorithm and cuckoo search algorithm can be creatively combined into a preprocessing pipeline that will rid the dataset of uninformative features and transform the data without harming the predictive capacity of the model.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -52,7 +53,7 @@ The initial goals that we have set in this project was applying nature-inspired 
 Therefore, our final project represents a significant extension of the initial proposal. The latter constitutes of predicting the population’s growth using a combination of Machine Learning and Nature Inspired Computing techniques (referred to as NIC). The final project takes this first \emph{\textbf{experimental}} step into a more complex and sophisticated direction. Our team attempts to build a ML preprocessing pipeline almost fully-based on NIC techniques and evaluates its performance with the considered dataset as per with the initial proposal. Such direction was motivated by a number of considerations including:
 \begin{enumerate}
 	\item The performance of ML models is highly correlated with the quality of the data fed to the algorithms. Performing feature selection allows us to solve a great number of problems, being especially effective in large datasets containing many features. It improves accuracy of predictions by finding and eliminating spurious relationships, as well as reducing the chances of overfitting. Other effects of feature selection are the improvement of training time for the model through cutting down on unnecessary data, and increase in interpretability, as fewer features have to be analyzed to figure out the dependencies. Therefore, Feature engineering as well as data preprocessing represent pillars of a high-performing end-to-end ML pipeline.
-	\item Although data preprocessing, manifested mostly in feature selection, represents one of the main applications of NIC algorithms, “feature engineering” on the other hand has not received its fair share of the scientific community’s attention. The “art” of feature engineering, as mentioned above, is a crucial step of Machine Learning pipelines and an extremely valuable skill for each and every ML practitioner. Our project attempts to build an NIC-based framework for two major “feature engineering techniques”:
+	\item Although data preprocessing, manifested mostly in feature selection, represents one of the main applications of NIC algorithms, \textbf{feature engineering} on the other hand has not received its fair share of the scientific community’s attention. The \emph{art} of feature engineering, as mentioned above, is a crucial step of Machine Learning pipelines and an extremely valuable skill for each and every ML practitioner. Our project attempts to build an NIC-based framework for two major “feature engineering techniques”:
 	\begin{itemize}
 		\item Eliminating multicollinearity
 		\item Feature transformations
@@ -144,11 +145,7 @@ Our solution is inspired by the following approach that is presented in the skle
 
 \subsubsection{Particle Swarm Optimization Clustering}
 
-Particle Swarm Optimization is one of the most influential Nature-Inspired algorithms that can optimize a problem by iteratively improving a chosen solution, depending on the elected performance measure\cite{ballardini2018tutorial}. This property makes it possible to use PSO for our clustering problem, where the final choice of solution will be determined by the algorithm and defined fitness function. The solutions to our optimization problem will be represented as particles, and the aim of the algorithm will be to adjust those particles' position according to the best one found so far, and the best position in the neighborhood of that particle. The formula according to which particle score is calculated is given below:\\
-
-\begin{equation}
-	score(particle)=\sum_{i=1}^{N_c}\dfrac{1+e^{\sum_{k, j\in C_i}^{}dis(f_k, f_j)}}{\log(e+|C_i|)}
-\end{equation}
+Particle Swarm Optimization is one of the most influential Nature-Inspired algorithms that can optimize a problem by iteratively improving a chosen solution, depending on the elected performance measure\cite{ballardini2018tutorial}. This property makes it possible to use PSO for our clustering problem, where the final choice of solution will be determined by the algorithm and defined fitness function. The solutions to our optimization problem will be represented as particles, and the aim of the algorithm will be to adjust those particles' position according to the best one found so far, and the best position in the neighborhood of that particle.\\
 
 where $N_c$ is umber of clusters in the particle, $C_i$ is set of features belonging to i-th cluster, $f_i$ is i-th feature as a vector.\\
 
@@ -163,18 +160,39 @@ Implementation of PSO that we used in our work has specific important parameters
 
 \subsubsection{Implementing PSO for Clustering}
 
-PSO can be directly applied to our clustering problem. As was stated before, it can be based on the table containing variables that represent how similar one feature is to another. It is filled according to the formula, where $spr(i, j)$ is the Spearman coefficient between features numbered $i$ and $j$ (the resulting heatmap is shown on Fig.2):
+In \cite{ballardini2018tutorial} the applications of PSO for clustering purposes are considered in details. However, this task is generally applied to datapoints/sample. A change in perspective was needed. We denote PSO for clustering as CPSO. CPSO can be determined by 3 points:
+
+\begin{itemize}
+	\item the number of clusters
+	\item The problem representation
+	\item The PSO performance evaluation
+\end{itemize}
+
+In our solution:
+
+\begin{itemize}
+	\item We run CPSO for a range value determined as [min\_fraction *n, max\_fraction * n], the final result is the best result out of the multiple runs 
+	\item For a predetermined number of clusters, denoted by K, we define a particle as a sequence of length n where the value at each cell is bounded by 0 and K exclusively
+	\item Denoting by particle[i].  the value at the i-th cell of a particle, we consider the floor(particle[i]) as the cluster to which the i-th feature belongs
+	\item A particle's score (representing a potential clustering) is then evaluated according to the formula below:
+\end{itemize}
+
+\begin{equation}
+	score(particle)=\sum_{i=1}^{N_c}\dfrac{1+e^{\sum_{k, j\in C_i}^{}dis(f_k, f_j)}}{\log(e+|C_i|)}
+\end{equation}
+
+The upper term directs the algorithm towards having similar points in the same cluster. The lower term directs the algorithm towards having larger clusters as a term with only one element is optimal with total accumulative distance of zero. The following illustrations demonstrate the results of a the clustering process applied to a toy regression dataset\cite{sklearnRegression}: 
 
 \begin{figure}[hbt!]
 	\centerline{\includegraphics[scale=0.35]{picture1.jpg}}
 	\caption{Heatmap with clustered features.}
-	\label{fig}
+	\label{fig1}
 \end{figure}
 
 \begin{figure}[hbt!]
 	\centerline{\includegraphics[scale=0.35]{picture2.jpg}}
 	\caption{Full heatmap of distances.}
-	\label{fig}
+	\label{fig2}
 \end{figure}
 
 \begin{equation}
@@ -183,16 +201,16 @@ PSO can be directly applied to our clustering problem. As was stated before, it 
 
 The algorithm will be checking the table to find features that are most closely correlated, and grouping them in clusters (Fig. 1), later applying Principal Component Analysis to select one of the features from the cluster to explain the influence of all of them onto the target. Ideally, that would remove the multicollinearity problem, and allow us to reduce the number of features in the dataset without significantly harming the predictive capacity of the model. \\ \\ \\
 
-\begin{lstlisting}[]{Clustering pseudocode}
-	for feature in features:
+\begin{lstlisting}[language=Python]{Clustering pseudocode}
+for feature in features:
 	if feature.VIF > 2.5:
-	n.add(feature)
-	n.compute_correlation_matrix()
-	n.get_distance_matrix(n.correlation_matrix)
-	clusters = n.create_clusters(n.distance_matrix)
-	for cluster in clusters:
+		n.add(feature)
+n.compute_correlation_matrix()
+n.get_dist_matrix(n.correlation_matrix)
+clusters = n.create_clusters(n.dist_matrix)
+for cluster in clusters:
 	final_feats.add(cluster.apply_pca())
-	return final_feats
+return final_feats
 \end{lstlisting}
 
 \subsection{Feature Selection}
@@ -201,15 +219,50 @@ In our research, we were able to identify three categories of feature selection 
 
 Among all categories mentioned, wrapper method has the highest computational costs, but can provide the best dataset that would provide the most accurate results for our model. It can also include nature-inspired algorithms as its estimators, making \textbf{wrapped} category of feature selection models our preferred choice.\\
 
-NiaPy library provides many implementations of different nature-inspired algorithms, and using all of them in our project would have been very inefficient. Since we already do most of the preprocessing ourselves and without aid from the evopreprocess library, and use some nature-inspired algorithms in our work (that is, particle swarm optimization and genetic algorithm), we have decided to use another algorithm as an optimizer for the evopreprocess library. The cuckoo search algorithm, that was taught on the most recent lecture, caught our attention, and after finding out that it was already used for feature selection by researchers\cite{aziz2018modified}\cite{rodrigues2013bcs}, we have decided to select it as the optimizer in \texttt{EvoFeatureSelection} class.\\ 
+NiaPy library provides many implementations of different nature-inspired algorithms, and using all of them in our project would have been very inefficient. Since we already do most of the preprocessing ourselves and without aid from the evopreprocess library, and use some nature-inspired algorithms in our work (that is, particle swarm optimization and genetic algorithm), we have decided to use another algorithm as an optimizer for the evopreprocess library. The cuckoo search algorithm, that was taught on the most recent lecture, caught our attention, and after finding out that it was already used for feature selection by researchers\cite{aziz2018modified}\cite{rodrigues2013bcs}, we have decided to select it as the optimizer in \texttt{EvoFeatureSelection} class. Levy Flights used in Cuckoo Search are also usually far more efficient than other randomization techniques based on random-walks. It also preserves a high performance while also ranking as the fastest NIC algorithm in feature selection tasks.\cite{karakativc2020evopreprocess}\\ 
 
 \subsection{Feature Transformation}
 
-Another important step in the preprocessing that we designed is feature transformation. The goal of that step is to improve linear correlation of different features with the target by applying 
-various functions (e.g. polynomial, square root, quantile transformation) on predictors until the accuracy of prediction improves. This idea is compatible with Nature-Inspired Algorithms to produce a combined solution. In our case feature transformation was used in conjunction with the Genetic Algorithm, where the chromosome was represented by the list of specific transformations applied to each feature. The dataset resulting from applying the transformations described in the chromosome onto the initial dataset is evaluated, and new chromosomes are generated after randomly mutating the existing ones. Eventually we will reach a dataset, where features are capable of more effectively predicting the target variable. 
+Another important step in the preprocessing that we designed is feature transformation. It is undeniable that relations between target variables and predictors in real-world data rarely posses two of the most desirable statistical properties:
+\begin{itemize}
+	\item Data having a normal distribution
+	\item Linear relation between target variable and predictors
+\end{itemize}
+The main goal of this feature engineering step is to apply a number of functions on the given features to map it as much as possible to a normal distribution. Such procedure it likely to improve performance by possibly increase the linear correlation between the independent and dependent variables. Our implementation of this step is highly inspired by TPOT as the it makes use of Genetic Algorithm to find the best ML pipeline.\\
+
+Our solution uses the following transformations:
+\begin{itemize}
+	\item cox-box
+	\item yeo-johnson
+	\item Reciprocal
+	\item Square root
+	\item Quantile transformation (mapping to a uniform distribution)
+	\item Polynomial: (from degree 1 up to degree 5)
+\end{itemize}
+
+A genetic algorithm is generally defined by: 
+\begin{enumerate}
+	\item Problem presentation (interpretation of the chromosome data structure)
+	\item Genetic operators: crossover, mutation, selection 
+	\item Performance evaluation
+\end{enumerate}
+
+Denoting by n the number of features,
+\begin{itemize}
+	\item Our chromosome is a sequence of $n$ genes, where each gene is associated with an integer value. The latter maps to one of the predefined transformations mentioned above. The latter will be applied on the corresponding feature 
+	\item Mutation operator: under a predetermined probability (mutation probability), a gene undergoes the following depending on the initial associated transformation: 
+	\begin{itemize}
+		\item It mapped to a different non-polynomial transformation if it is initially associated with a non-polynomial transformation
+		\item If it is initially associated with a polynomial transformation, then its degree either increments or decrements with 0.5 probability
+	\end{itemize}
+	\item Provided with the target variable, a particle is scored as follows:
+	\begin{equation}
+		score=\dfrac{\sum_{i=1}^{n}|corr(y, f_i(x_i))|}{n}
+	\end{equation}
+\end{itemize}
 
 \section{Github link}
-$https://github.com/Daru1914/NIC\_Project$
+\href{https://github.com/Daru1914/NIC\_Project}{https://github.com/Daru1914/NIC\_Project}
 
 \section{Experiments and Evaluation}
 
@@ -244,7 +297,7 @@ We have added the option for the number of informative and redundant features to
 	\begin{center}
 		\begin{tabular}{|c|c|c|c|c|}
 			\hline
-			\textbf{Inform. range}&\textbf{Redund. range}&\textbf{Imp. acc.}&\textbf{Dec. acc.}&\textbf{Avg. rem. feats} \\
+			\textbf{Inf. range}&\textbf{Redund. range}&\textbf{Imp. acc.}&\textbf{Dec. acc.}&\textbf{Avg. rem. feats} \\
 			\hline 
 			6-9& 4-6& 3& 0& 5.5 \\
 			\hline 
@@ -273,7 +326,7 @@ The effect of feature transformations was tested on 3 generated datasets for cla
 
 The results of that testing are as follows:
 
-\begin{table}[htbp]
+\begin{table}[hbt!]
 	\caption{Transformations for dataset 0}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
@@ -295,7 +348,7 @@ The results of that testing are as follows:
 	\end{center}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[hbt!]
 	\caption{Transformations for dataset 1}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
@@ -317,7 +370,7 @@ The results of that testing are as follows:
 	\end{center}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[hbt!]
 	\caption{Transformations for dataset 2}
 	\begin{center}
 		\begin{tabular}{|c|c|c|}
@@ -339,7 +392,7 @@ The results of that testing are as follows:
 	\end{center}
 \end{table}
 
-As we can see, feature transformation produced small improvements in accuracy, when accuracy for the initial dataset was high enough, and it produced a major increase in it when accuracy was low (Linear SVM for dataset 1). However, in the testing of the last dataset (which was the most complicated), the feature transformation actually decreased the accuracy by a small amount. It could have been caused by our choice of transformation functions, as they could not capture the complicated relationships of the dataset, as they are mainly applied to make linear relationships more pronounced. 
+As we can see, feature transformation produced small improvements in accuracy, when accuracy for the initial dataset was high enough, and it produced a major increase in it when accuracy was low (Linear SVM for dataset 1). However, in the testing of the last dataset (which was the most complicated), the feature transformation actually decreased the accuracy by a small amount. Generally this type of dataset can be separated by applying kernel transformations and functions such as RBF. \\
 
 \subsection{Testing the preprocessing pipeline}
 
@@ -368,40 +421,34 @@ Testing of the population growth dataset on the entire preprocessing pipeline wa
 \end{table}
 
 \section{Analysis and Observations}
-tbd
+
+The previous section covers in details the results of our experimental attempt. The different pipeline components achieved reasonable performance on the toy datasets generated by tools such as scikit-learn. It is crucial to  bear in mind that those datasets are indeed of limited complexity and do not introduce complex and non-linear interactions between the predictors and the target variable.\\
+
+The comparison of the performance of Machine Learning models before and after applying the transformation further justifies this claim. (refer to Fig. 3). 
+
+\begin{figure}[hbt!]
+	\centerline{\includegraphics[scale=0.55]{picture3.jpg}}
+	\caption{Best MSE scores.}
+	\label{fig1}
+\end{figure}
+
+The current implementation is indeed limited and not suitable to tackle such a difficult challenge (building a NIC-based preprocessing pipeline) with complex and high-dimentional real-world data. \\
+
+Nevertheless, we believe that the overall performance, in the light of the limited experience, the experimental nature of the project and the time constraints, is quite satisfactory.
+
 
 \section{Conclusion}
 
-In the end, while our preprocessing pipeline has not managed to improve accuracy of the predictions in comparison to just operating on the given dataset, the drop in accuracy was not significant, and we have managed to rid the dataset of several mostly redundant features in the process. 
+In the end, while our preprocessing pipeline has not managed to improve accuracy of the predictions in comparison to just operating on the given dataset, the drop in accuracy was not significant, and we have managed to rid the dataset of several mostly redundant features in the process. \\
+
+However, the room for improvement is quite large with the current implementation. The following upgrades deserve consideration:
+\begin{itemize}
+	\item Building more mathematically-robust scoring functions instead of determining it on experimental basis
+	\item Conceive better techniques to link between the discrete nature of the problem and the continuous nature of the optimization algorithms
+	\item Applying more rigorous statistical analysis, as well as considering additional datasets
+\end{itemize}
 
 \bibliographystyle{plain}
 \bibliography{referens}
-
-\section{Funni table}
-
-\begin{table}[htbp]
-\caption{Table Type Styles}
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-\cline{2-4} 
-\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-\hline
-copy& More table copy$^{\mathrm{a}}$& &  \\
-\hline
-\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-\end{tabular}
-\label{tab1}
-\end{center}
-\end{table}
-
-\section{Funni picture}
-
-\begin{figure}[htbp]
-\centerline{\includegraphics{fig1.png}}
-\caption{Example of a figure caption.}
-\label{fig}
-\end{figure}
 
 \end{document}
