@@ -22,7 +22,7 @@ fully-based on NIC techniques and evaluates its performance
 with the considered dataset as per with the initial proposal.. 
 
 ## Directory Details
-* databases: used to save the datasets file used in the project. Currently restricted to the **Population's Growth** dataset.
+* databases: used to save the datasets file used in the project. Currently restricted to the **Population's Growth** [dataset](https://github.com/Daru1914/NIC_Project/blob/final/databases/final_dataset.xlsx).
 * notesbooks: a directory of our working code, implementing the different parts of the project
     * Feature_transformer.ipynb/py: the code for the feature transformation step both as JupyterNotebook and a Python file
     * multicollinearity_PSO.ipynb: the code for the multicollinearity step
